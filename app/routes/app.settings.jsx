@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   AppProvider,
   Page,
@@ -10,19 +9,18 @@ import {
   TextField,
   Divider,
   useBreakpoints,
-} from '@shopify/polaris';
-import en from '@shopify/polaris/locales/en.json';
-import '@shopify/polaris/build/esm/styles.css';
-
+} from "@shopify/polaris";
+import en from "@shopify/polaris/locales/en.json";
+import "@shopify/polaris/build/esm/styles.css";
 
 function SettingsPage() {
   const { smUp } = useBreakpoints(); // For responsive behavior
 
   return (
     <Page title="Settings">
-      <BlockStack gap={{ xs: '800', sm: '400' }}>
+      <BlockStack gap={{ xs: "800", sm: "400" }}>
         {/* InterJambs Section */}
-        <InlineGrid columns={{ xs: '1fr', md: '2fr 5fr' }} gap="400">
+        <InlineGrid columns={{ xs: "1fr", md: "2fr 5fr" }} gap="400">
           <Box
             as="section"
             paddingInlineStart={{ xs: 400, sm: 0 }}
@@ -48,7 +46,7 @@ function SettingsPage() {
         {smUp && <Divider />}
 
         {/* Dimensions Section */}
-        <InlineGrid columns={{ xs: '1fr', md: '2fr 5fr' }} gap="400">
+        <InlineGrid columns={{ xs: "1fr", md: "2fr 5fr" }} gap="400">
           <Box
             as="section"
             paddingInlineStart={{ xs: 400, sm: 0 }}
@@ -71,6 +69,7 @@ function SettingsPage() {
           </Card>
         </InlineGrid>
       </BlockStack>
+     
     </Page>
   );
 }
