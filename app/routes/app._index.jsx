@@ -4,7 +4,6 @@ import { useAppBridge } from "@shopify/app-bridge-react";
 import { boundary } from "@shopify/shopify-app-react-router/server";
 import { authenticate } from "../shopify.server";
 
-
 export const loader = async ({ request }) => {
   await authenticate.admin(request);
 
@@ -93,51 +92,53 @@ export default function Index() {
 
   return (
     <s-page heading="PowerX - Functions">
-      <s-stack direction="block" gap="base">
-        <s-section heading="What's PowerX - Functions Creator?">
+      <s-stack direction="block" gap="base" padding="none">
+        <s-section heading="What's PowerX - Functions Creator?" >
           <s-grid
             gridTemplateColumns="repeat(5,1fr)"
             justifyContent="center"
             alignItems="center"
           >
             <s-grid-item gridColumn="span 4">
-              <s-paragraph>
-                All-in-one Functions engine for Shopify: advanced discounts,
-                delivery & payment rules, cart transforms, and Plus-only
-                checkout control.
-              </s-paragraph>
+              <s-stack paddingBlockEnd="base">
+                <s-paragraph>
+                  All-in-one Functions engine for Shopify: advanced discounts,
+                  delivery & payment rules, cart transforms, and Plus-only
+                  checkout control.
+                </s-paragraph>
+              </s-stack>
+              <s-box maxInlineSize="250px">
+                <s-grid
+                  gridTemplateColumns="repeat(2,1fr)"
+                  gap="base"
+                  padding="0"
+                >
+                  <s-button icon="play-circle" variant="secondary">
+                    Quick guide
+                  </s-button>
+
+                  <s-link>more video</s-link>
+                </s-grid>
+              </s-box>
             </s-grid-item>
 
             <s-grid-item gridColumn="span 1">
-              <s-box>
-                <s-image
-                  src="https://cdn.shopify.com/s/files/1/0914/0102/7889/files/Main_Featured-sm-v2.jpg?v=1741609098)"
-                  alt="Featured product"
-                  aspectRatio="1/0.5"
-                  inlineSize="auto"
-                  objectFit="cover"
-                  loading="lazy"
-                />
-              </s-box>
-
-              <s-button variant="primary" icon="play">
-                6:51
-              </s-button>
+              <s-stack paddingBlockEnd="base">
+                 <s-image
+                src="https://cdn.shopify.com/s/files/1/0914/0102/7889/files/Main_Featured-sm-v2.jpg?v=1741609098)"
+                alt="Featured product"
+                aspectRatio="16/9"
+                inlineSize="auto"
+                objectFit="cover"
+                loading="lazy"
+              />
+              </s-stack>
+             
             </s-grid-item>
-            <s-grid gridTemplateColumns="repeat(2,1fr)" gap="base" padding="0">
-              <s-box padding="0">
-                <s-butto icon="circle" variant="secondary">
-                  Quick guide
-                </s-butto>
-              </s-box>
-              <s-box padding="0">
-                <s-link>more video</s-link>
-              </s-box>
-            </s-grid>
           </s-grid>
         </s-section>
 
-        <s-section heading="App embed">
+        <s-section heading="App embed" >
           <s-paragraph padding="base">
             Enabling app embed will allow you to track URL based discounts and
             discount codes. This option is required for UTM tracking.
@@ -153,7 +154,7 @@ export default function Index() {
 
         <s-grid gridTemplateColumns="repeat(3,1fr)" gap="base">
           <s-section>
-            <s-stack direction="inline" gap="base">
+            <s-stack direction="inline" gap="base" paddingBlockEnd="base">
               <s-icon type="discount-add" tone="success"></s-icon>
               <s-text type="strong">Discounts Functions</s-text>
             </s-stack>
@@ -168,7 +169,7 @@ export default function Index() {
             </s-box>
           </s-section>
           <s-section>
-            <s-stack direction="inline" gap="base">
+            <s-stack direction="inline" gap="base" paddingBlockEnd="base">
               <s-icon type="credit-card" tone="success"></s-icon>
               <s-text type="strong">Checkout Customization Functions</s-text>
             </s-stack>
@@ -184,7 +185,7 @@ export default function Index() {
             </s-box>
           </s-section>
           <s-section>
-            <s-stack direction="inline" gap="base">
+            <s-stack direction="inline" gap="base" paddingBlockEnd="base">
               <s-icon type="plus-circle-down" tone="success"></s-icon>
               <s-text type="strong">More Functions</s-text>
             </s-stack>
@@ -256,108 +257,125 @@ export default function Index() {
           </s-box>
 
           <s-stack direction="block" gap="base">
-          <s-box border="base" padding="base" borderRadius="base">
-            <s-stack direction="inline" justifyContent="space-between">
-              <s-box inlineSize="760px">
-                <s-search-field
-                  label="Search"
-                  labelAccessibilityVisibility="exclusive"
-                  placeholder="Search function"
-                />
-              </s-box>
-              <s-button
-                icon="plus"
-                variant="primary"
-                onClick={handleNewFunction}
-              >
-                New function
-              </s-button>
-            </s-stack>
-
-            {!showTable ? (
-              <s-grid gap="base" justifyItems="center" paddingBlock="large-400">
-                <s-box
-                  maxInlineSize="400px"
-                  maxBlockSize="400px"
-                  blockSize="300px"
-                >
-                  <s-image
-                    aspectRatio="1/0.5"
-                    src="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
-                    alt="A stylized graphic of four characters, each holding a puzzle piece"
+            <s-box border="base" padding="base" borderRadius="base">
+              <s-stack direction="inline" justifyContent="space-between">
+                <s-box inlineSize="760px">
+                  <s-search-field
+                    label="Search"
+                    labelAccessibilityVisibility="exclusive"
+                    placeholder="Search function"
                   />
                 </s-box>
-                <s-grid justifyItems="center" maxInlineSize="450px" gap="base">
-                  <s-stack alignItems="center" gap="base">
-                    <s-heading>Create your first function!</s-heading>
-                    <s-paragraph>
-                      Create a function to offer more campaigns or rules
-                    </s-paragraph>
+                <s-button
+                  icon="plus"
+                  variant="primary"
+                  onClick={handleNewFunction}
+                >
+                  New function
+                </s-button>
+              </s-stack>
 
-                    <s-button variant="primary">Create new function</s-button>
-                  </s-stack>
+              {!showTable ? (
+                <s-grid
+                  gap="base"
+                  justifyItems="center"
+                  paddingBlock="large-400"
+                >
+                  <s-box
+                    maxInlineSize="400px"
+                    maxBlockSize="400px"
+                    blockSize="300px"
+                  >
+                    <s-image
+                      aspectRatio="1/0.5"
+                      src="https://cdn.shopify.com/s/files/1/0262/4071/2726/files/emptystate-files.png"
+                      alt="A stylized graphic of four characters, each holding a puzzle piece"
+                    />
+                  </s-box>
+                  <s-grid
+                    justifyItems="center"
+                    maxInlineSize="450px"
+                    gap="base"
+                  >
+                    <s-stack alignItems="center" gap="base">
+                      <s-heading>Create your first function!</s-heading>
+                      <s-paragraph>
+                        Create a function to offer more campaigns or rules
+                      </s-paragraph>
+
+                      <s-button variant="primary">Create new function</s-button>
+                    </s-stack>
+                  </s-grid>
                 </s-grid>
-              </s-grid>
-              
-            ) : (
-              
-              <s-box padding="base">
-                <s-table>
-                  <s-table-header-row>
-                    <s-table-header>All</s-table-header>
-                    <s-table-header>Discount</s-table-header>
-                    <s-table-header>Delivery</s-table-header>
-                    <s-table-header>Payment</s-table-header>
-                    <s-table-header>Validation</s-table-header>
-                    <s-table-header>Discont Manager</s-table-header>
-                  </s-table-header-row>
-                  <s-table-body>
-                    <s-table-row>
-                      <s-table-cell>John Smith</s-table-cell>
-                      <s-table-cell>john@example.com</s-table-cell>
-                      <s-table-cell>23</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                    </s-table-row>
-                    <s-table-row>
-                      <s-table-cell>John Smith</s-table-cell>
-                      <s-table-cell>john@example.com</s-table-cell>
-                      <s-table-cell>23</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                      <s-table-cell>123-456-7890</s-table-cell>
-                    </s-table-row>
-                  </s-table-body>
-                </s-table>
-              </s-box>
-            )}
-          </s-box>
+              ) : (
+                <s-box padding="base">
+                  <s-table>
+                    <s-table-header-row>
+                      <s-table-header>All</s-table-header>
+                      <s-table-header>Discount</s-table-header>
+                      <s-table-header>Delivery</s-table-header>
+                      <s-table-header>Payment</s-table-header>
+                      <s-table-header>Validation</s-table-header>
+                      <s-table-header>Discont Manager</s-table-header>
+                    </s-table-header-row>
+                    <s-table-body>
+                      <s-table-row>
+                        <s-table-cell>John Smith</s-table-cell>
+                        <s-table-cell>john@example.com</s-table-cell>
+                        <s-table-cell>23</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                      </s-table-row>
+                      <s-table-row>
+                        <s-table-cell>John Smith</s-table-cell>
+                        <s-table-cell>john@example.com</s-table-cell>
+                        <s-table-cell>23</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                        <s-table-cell>123-456-7890</s-table-cell>
+                      </s-table-row>
+                    </s-table-body>
+                  </s-table>
+                </s-box>
+              )}
+            </s-box>
           </s-stack>
         </s-section>
         <s-section heading="Need help or missing a feature?">
           <s-grid gridTemplateColumns="repeat(10,1fr)" alignItems="center">
             <s-grid-item gridColumn="span 9">
-              <s-text>
-                Our team is here to help. Contact us and we will get back to you
-                as soon as possible. Request a feature or report an issue and it
-                will resolved in a few hours not days
-              </s-text>
+              <s-stack padding="base">
+                <s-paragraph>
+                  Our team is here to help. Contact us and we will get back to
+                  you as soon as possible. Request a feature or report an issue
+                  and it will resolved in a few hours not days
+                </s-paragraph>
+              </s-stack>
+              <s-box maxInlineSize="450px">
+                <s-grid gridTemplateColumns="repeat(2,1fr)">
+                  <s-button>
+                    {" "}
+                    <s-stack direction="inline">
+                      <s-icon type="email" />
+                      <s-text>contact@codeinspire.io</s-text>
+                    </s-stack>
+                  </s-button>
+                  <s-button>watch videos</s-button>
+                </s-grid>
+              </s-box>
             </s-grid-item>
             <s-grid-item gridColumn="span 1">
               <s-image
                 src="https://cdn.shopify.com/s/files/1/0585/8616/9399/files/technical-support.png?v=1743851740"
                 alt="Featured product"
-                aspectRatio="1/1"
+                aspectRatio="1"
                 inlineSize="auto"
                 objectFit="cover"
                 loading="lazy"
               />
             </s-grid-item>
           </s-grid>
-
-          <s-button>contact@codeinspire.io</s-button>
-          <s-button>watch videos</s-button>
         </s-section>
       </s-stack>
     </s-page>

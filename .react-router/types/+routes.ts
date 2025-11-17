@@ -31,10 +31,16 @@ type Pages = {
   "/app": {
     params: {};
   };
+  "/app/pricing1": {
+    params: {};
+  };
   "/app/settings": {
     params: {};
   };
   "/app/pricing": {
+    params: {};
+  };
+  "/app/guides": {
     params: {};
   };
   "/app/api": {
@@ -45,7 +51,7 @@ type Pages = {
 type RouteFiles = {
   "root.jsx": {
     id: "root";
-    page: "/" | "/webhooks/app/scopes_update" | "/webhooks/app/uninstalled" | "/auth/login" | "/auth/*" | "/app" | "/app/settings" | "/app/pricing" | "/app/api";
+    page: "/" | "/webhooks/app/scopes_update" | "/webhooks/app/uninstalled" | "/auth/login" | "/auth/*" | "/app" | "/app/pricing1" | "/app/settings" | "/app/pricing" | "/app/guides" | "/app/api";
   };
   "routes/webhooks.app.scopes_update.jsx": {
     id: "routes/webhooks.app.scopes_update";
@@ -69,7 +75,11 @@ type RouteFiles = {
   };
   "routes/app.jsx": {
     id: "routes/app";
-    page: "/app" | "/app/settings" | "/app/pricing" | "/app/api";
+    page: "/app" | "/app/pricing1" | "/app/settings" | "/app/pricing" | "/app/guides" | "/app/api";
+  };
+  "routes/app.pricing1.jsx": {
+    id: "routes/app.pricing1";
+    page: "/app/pricing1";
   };
   "routes/app.settings.jsx": {
     id: "routes/app.settings";
@@ -82,6 +92,10 @@ type RouteFiles = {
   "routes/app._index.jsx": {
     id: "routes/app._index";
     page: "/app";
+  };
+  "routes/app.guides.jsx": {
+    id: "routes/app.guides";
+    page: "/app/guides";
   };
   "routes/app.api.jsx": {
     id: "routes/app.api";
@@ -97,8 +111,10 @@ type RouteModules = {
   "routes/_index": typeof import("./app/routes/_index/route.jsx");
   "routes/auth.$": typeof import("./app/routes/auth.$.jsx");
   "routes/app": typeof import("./app/routes/app.jsx");
+  "routes/app.pricing1": typeof import("./app/routes/app.pricing1.jsx");
   "routes/app.settings": typeof import("./app/routes/app.settings.jsx");
   "routes/app.pricing": typeof import("./app/routes/app.pricing.jsx");
   "routes/app._index": typeof import("./app/routes/app._index.jsx");
+  "routes/app.guides": typeof import("./app/routes/app.guides.jsx");
   "routes/app.api": typeof import("./app/routes/app.api.jsx");
 };
